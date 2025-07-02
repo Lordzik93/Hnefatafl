@@ -1,12 +1,8 @@
 ﻿using System;
+using System.Drawing;
 
 namespace Hnefatafl.Models
 {
-    /// <summary>
-    /// Types of pieces on the board.
-    /// </summary>
-    public enum PieceType { None, Attacker, Defender, King }
-
     /// <summary>
     /// Represents the game board and its logic.
     /// </summary>

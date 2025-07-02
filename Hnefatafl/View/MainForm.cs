@@ -1,9 +1,8 @@
 ﻿
 using System;
 using System.Windows.Forms;
-using Hnefatafl.Views;
 
-namespace Hnefatafl
+namespace Hnefatafl.Views
 {
     public class MainForm : Form
     {

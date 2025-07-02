@@ -1,25 +1,28 @@
-﻿
-using System;
+﻿using System;
 using System.Windows.Forms;
-using Hnefatafl.Views;
 
-namespace Hnefatafl
+namespace Hnefatafl.Views
 {
     /// <summary>
     /// Form that allows the user to select board size and game mode.
     /// </summary>
-    public class BoardSizeForm : Form
+    public class BoardSizeForm : UserControl
     {
         private ComboBox cmbBoardSize;
         private RadioButton rdoVsPlayer;
         private RadioButton rdoVsAI;
         private Button btnStart;
 
+        public event Action<int, bool> GameStartRequested;
+
+        /// <summary>
+        /// public BoardSizeForm()
+        /// </summary>
         public BoardSizeForm()
         {
-            this.Text = "Wybór planszy";
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.ClientSize = new System.Drawing.Size(300, 200);
+            //this.Text = "Wybór planszy";
+            //this.StartPosition = FormStartPosition.CenterScreen;
+            //this.ClientSize = new System.Drawing.Size(300, 200);
 
             Label lblSize = new Label
             {
@@ -74,9 +77,10 @@ namespace Hnefatafl
             }
 
             bool vsAI = rdoVsAI.Checked;
+            GameStartRequested?.Invoke(boardSize, vsAI);
 
             // Start game form with selected options
-            GameForm gameForm = new GameForm(vsAI, boardSize);
+            GameForm gameForm = new GameForm(boardSize, vsAI);
             gameForm.Show();
             this.Hide();
         }

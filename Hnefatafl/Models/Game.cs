@@ -3,11 +3,6 @@
 namespace Hnefatafl.Models
 {
     /// <summary>
-    /// Represents the two players in the game.
-    /// </summary>
-    public enum Player { Attacker, Defender }
-
-    /// <summary>
     /// Main game logic controller.
     /// </summary>
     public class Game
@@ -17,9 +12,9 @@ namespace Hnefatafl.Models
         public bool IsGameOver { get; private set; }
         public Player? Winner { get; private set; }
 
-        public Game()
+        public Game(int size)
         {
-            Board = new Board();
+            Board = new Board(size);
             CurrentPlayer = Player.Defender;
             IsGameOver = false;
         }
@@ -60,7 +55,7 @@ namespace Hnefatafl.Models
         /// </summary>
         public void Reset()
         {
-            Board = new Board();
+            Board = new Board(Board.Size);
             CurrentPlayer = Player.Defender;
             IsGameOver = false;
             Winner = null;

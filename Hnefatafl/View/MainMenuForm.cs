@@ -19,8 +19,8 @@ namespace Hnefatafl.Views
             var btnVsAI = new Button { Text = "Play vs AI", Location = new Point(80, 70), Size = new Size(140, 30) };
             var btnRules = new Button { Text = "Game Rules", Location = new Point(80, 110), Size = new Size(140, 30) };
 
-            btnVsPlayer.Click += (s, e) => { new GameForm(false).Show(); };
-            btnVsAI.Click += (s, e) => { new GameForm(true).Show(); };
+            btnVsPlayer.Click += (s, e) => { new GameForm(11, false).Show(); };
+            btnVsAI.Click += (s, e) => { new GameForm(11, true).Show(); };
             btnRules.Click += (s, e) =>
             {
                 MessageBox.Show("Hnefatafl is a strategy board game...\n\nGoal:\n- Defenders must help the king escape to a corner.\n- Attackers must capture the king.\n\nRules:\n- Pieces move orthogonally any number of spaces.\n- Captures are made by surrounding an enemy piece on two opposite sides.", "Game Rules");

@@ -29,9 +29,9 @@ namespace Hnefatafl.AI
             var player = game.CurrentPlayer;
             var moves = new List<(Position, Position)>();
 
-            for (int x = 0; x < Board.Size; x++)
+            for (int x = 0; x < board.Size; x++)
             {
-                for (int y = 0; y < Board.Size; y++)
+                for (int y = 0; y < board.Size; y++)
                 {
                     var piece = board.Grid[x, y];
                     if ((player == Player.Attacker && piece != PieceType.Attacker) ||
@@ -45,7 +45,7 @@ namespace Hnefatafl.AI
                         for (int dy = -1; dy <= 1; dy++)
                         {
                             if (Math.Abs(dx) + Math.Abs(dy) != 1) continue;
-                            for (int i = 1; i < Board.Size; i++)
+                            for (int i = 1; i < board.Size; i++)
                             {
                                 int nx = x + dx * i;
                                 int ny = y + dy * i;
